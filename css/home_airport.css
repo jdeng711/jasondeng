@@ -1,0 +1,555 @@
+/* Full-page airport theme */
+.airport-home{
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 30% 20%, rgba(255,208,0,0.08), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(26,166,166,0.06), transparent 55%),
+    linear-gradient(180deg, #0b0f12 0%, #0f1418 55%, #0b0f12 100%);
+  color: #e9eef3;
+}
+
+/* a subtle "terminal noise" texture without images */
+.airport-home::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+.airport-shell{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 22px 60px;
+}
+
+.airport-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom: 18px;
+}
+
+.airport-kicker{
+  color:#ffd000;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.airport-meta{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.airport-code{
+  padding: 6px 10px;
+  border: 1px solid rgba(255,208,0,0.35);
+  border-radius: 10px;
+  color:#ffd000;
+  background: rgba(255,208,0,0.08);
+  letter-spacing: .12em;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.airport-code:hover{
+  background: rgba(255,208,0,0.15);
+  border-color: rgba(255,208,0,0.5);
+  transform: scale(1.05);
+}
+
+.airport-clock{
+  opacity: .85;
+  letter-spacing: .08em;
+}
+
+.airport-hero{
+  display:grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Make the board look more "mounted" */
+.airport-board{
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.55);
+  width: 100%;
+  max-width: none;
+}
+
+/* Buttons: make them read more like signage */
+.airport-wayfinding{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.airport-wayfinding .wayfinding-btn{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.airport-wayfinding .wayfinding-btn:hover{
+  border-color: rgba(255,208,0,0.30);
+  transform: translateY(-2px);
+}
+
+/* Make emoji tile more like yellow airport icon block */
+.airport-wayfinding .wf-emoji{
+  background: rgba(255,208,0,0.14);
+  border: 1px solid rgba(255,208,0,0.28);
+}
+
+/* keep your existing gate chip, but match airport palette */
+.airport-wayfinding .wayfinding-btn::after{
+  background: rgba(255,208,0,0.10);
+  border-color: rgba(255,208,0,0.24);
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  .airport-hero{
+    grid-template-columns: 1fr;
+  }
+  .airport-wayfinding{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px){
+  .airport-wayfinding{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light mode */
+html[data-theme="light"] .airport-home{
+  background:
+    radial-gradient(1200px 600px at 30% 20%, rgba(255,208,0,0.12), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(26,166,166,0.10), transparent 55%),
+    linear-gradient(180deg, #f5f7fa 0%, #e8ecf1 55%, #f5f7fa 100%);
+  color: #1a1f2e;
+}
+
+html[data-theme="light"] .airport-kicker{
+  color: #d4a500;
+}
+
+html[data-theme="light"] .airport-code{
+  color: #d4a500;
+  border-color: rgba(212,165,0,0.35);
+  background: rgba(212,165,0,0.12);
+}
+
+html[data-theme="light"] .airport-code:hover{
+  background: rgba(212,165,0,0.2);
+  border-color: rgba(212,165,0,0.5);
+}
+
+html[data-theme="light"] .airport-board{
+  background: rgba(255,255,255,0.6);
+  border-color: rgba(0,0,0,0.12);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.15);
+}
+
+html[data-theme="light"] .board-title{
+  color: #1d1c1c;
+}
+
+html[data-theme="light"] .row-label{
+  color: #1d1c1c;
+}
+
+html[data-theme="light"] .airport-wayfinding .wayfinding-btn{
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(0,0,0,0.12);
+  color: #1a1f2e;
+}
+
+html[data-theme="light"] .airport-wayfinding .wayfinding-btn:hover{
+  border-color: rgba(212,165,0,0.35);
+  background: rgba(255,255,255,0.9);
+}
+
+html[data-theme="light"] .airport-wayfinding .wf-emoji{
+  background: rgba(212,165,0,0.18);
+  border-color: rgba(212,165,0,0.3);
+}
+
+/* --- UPDATES TO EXISTING CLASSES --- */
+
+/* 1. Turn the body into a flex container so footer sticks to bottom */
+.airport-home {
+  display: flex;
+  flex-direction: column;
+  /* Keep your existing min-height and background logic here */
+}
+
+/* 2. Allow main content to expand to fill empty space */
+.airport-shell {
+  flex: 1;
+  width: 100%; /* Ensure full width */
+}
+
+
+/* --- NEW METRO FOOTER STYLES --- */
+
+.metro-footer {
+  width: 100%;
+  padding: 0 22px 60px; /* Matching your shell padding */
+  margin-top: auto;
+}
+
+.metro-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20px; /* Space for the line */
+}
+
+/* The Transit Line */
+.metro-line {
+  position: absolute;
+  top: 28px; /* Aligns with center of markers */
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Add a colored "progress" bar effect or highlight */
+.metro-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255,208,0,0) 0%, 
+    #ffd000 50%, 
+    rgba(255,208,0,0) 100%
+  );
+  opacity: 0.3;
+}
+
+/* The Stop Link Container */
+.metro-stop {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  group: normal;
+  width: 80px; /* Fixed width for alignment */
+}
+
+/* The Circular Station Marker */
+.metro-marker {
+  width: 22px;
+  height: 22px;
+  background-color: #0b0f12; /* Matches Dark Mode BG */
+  border: 4px solid #ffd000;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 0 4px rgba(11, 15, 18, 1); /* Fake gap between line and dot */
+}
+
+/* The Label Text */
+.metro-label {
+  margin-top: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(233, 238, 243, 0.6);
+  transition: color 0.2s ease;
+  text-align: center;
+}
+
+/* --- HOVER EFFECTS --- */
+
+.metro-stop:hover .metro-marker {
+  transform: scale(1.3);
+  background-color: #ffd000;
+  box-shadow: 0 0 15px rgba(255, 208, 0, 0.6);
+}
+
+.metro-stop:hover .metro-label {
+  color: #ffd000;
+  font-weight: 700;
+}
+
+/* --- RESPONSIVE: VERTICAL "TIMELINE" STYLE --- */
+
+@media (max-width: 768px) {
+  .metro-container {
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 20px; /* Indent for the vertical line */
+  }
+
+  /* Rotate the line to be vertical */
+  .metro-line {
+    width: 6px;
+    height: 100%;
+    left: 48px; /* Aligns with marker center */
+    top: 0;
+    right: auto;
+    background: linear-gradient(180deg, 
+      rgba(255,208,0,0) 0%, 
+      rgba(255,208,0,0.3) 10%, 
+      rgba(255,208,0,0.3) 90%,
+      rgba(255,208,0,0) 100%
+    );
+  }
+  
+  .metro-line::after { display: none; } /* Remove horizontal gradient */
+
+  .metro-stop {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .metro-marker {
+    box-shadow: 0 0 0 5px #0b0f12; /* Increase spacing mask for vertical */
+  }
+
+  .metro-label {
+    margin-top: 0;
+    font-size: 14px;
+  }
+}
+
+/* --- LIGHT MODE OVERRIDES --- */
+
+html[data-theme="light"] .metro-marker {
+  background-color: #f5f7fa; /* Match Light BG */
+  border-color: #d4a500;
+  box-shadow: 0 0 0 4px #f5f7fa;
+}
+
+html[data-theme="light"] .metro-label {
+  color: rgba(26, 31, 46, 0.6);
+}
+
+html[data-theme="light"] .metro-line {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .metro-stop:hover .metro-marker {
+  background-color: #d4a500;
+}
+
+html[data-theme="light"] .metro-stop:hover .metro-label {
+  color: #d4a500;
+}
+
+/* Light mode mobile specific */
+@media (max-width: 768px) {
+  html[data-theme="light"] .metro-marker {
+    box-shadow: 0 0 0 5px #f5f7fa;
+  }
+}
+
+/* --- BOARDING AREA (Middle Section) --- */
+
+.boarding-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+  align-items: stretch; /* Makes both boxes same height */
+}
+
+/* LEFT: Photo Visuals */
+.boarding-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px; /* Ensure height if image loads slow */
+}
+
+.visual-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(1.1); /* Slight "screen" pop */
+}
+
+/* The "Security Camera" Overlay */
+
+.visual-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255, 0, 50, 0.8); /* "Recording" Red */
+  color: white;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  z-index: 3;
+  letter-spacing: 1px;
+}
+
+/* RIGHT: Gate Screen Info */
+.boarding-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.gate-screen {
+  background: rgba(11, 15, 18, 0.85); /* Dark glass */
+  border: 1px solid rgba(255, 208, 0, 0.3); /* Yellow border */
+  border-radius: 6px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(255, 208, 0, 0.05);
+  backdrop-filter: blur(10px);
+  font-family: ui-monospace, "SF Mono", monospace;
+}
+
+/* Screen Header */
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 208, 0, 0.3);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  color: #ffd000;
+}
+
+.gate-label {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.gate-status {
+  font-size: 12px;
+  background: rgba(255, 208, 0, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* Screen Body */
+.screen-body {
+  flex: 1;
+  color: #e9eef3;
+}
+
+.bio-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(233, 238, 243, 0.5);
+  margin-bottom: 12px;
+}
+
+.bio-text {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Screen Footer */
+.screen-footer {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 20px;
+  font-size: 11px;
+  color: rgba(233, 238, 243, 0.4);
+}
+
+/* --- RESPONSIVE STACKING --- */
+@media (max-width: 900px) {
+  .boarding-area {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 24px;
+  }
+
+  .visual-frame {
+    height: 300px; /* Fixed height for image on mobile */
+  }
+}
+
+/* --- LIGHT MODE ADJUSTMENTS --- */
+html[data-theme="light"] .gate-screen {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .screen-header {
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  color: #d4a500;
+}
+
+html[data-theme="light"] .gate-status {
+  background: rgba(212, 165, 0, 0.15);
+  color: #d4a500;
+}
+
+html[data-theme="light"] .bio-title {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="light"] .bio-text {
+  color: #1d1c1c;
+}
+
+html[data-theme="light"] .screen-footer {
+  border-top-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.4);
+}
