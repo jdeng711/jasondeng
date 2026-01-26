@@ -79,7 +79,7 @@ function initSplitFlapBoard(data) {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
   const data = {
-    location: 'SHENYANG, CHINA',
+    location: 'CAMBRIDGE, MASSACHUSETTS',
     email: 'JDENG@COLLEGE.HARVARD.EDU',
     status: 'UNDERGRADUATE @ HARVARD'
   };
